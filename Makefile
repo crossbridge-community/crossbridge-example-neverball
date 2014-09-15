@@ -41,7 +41,7 @@ all:
 	$(ASC2) -AS3 -strict -optimize \
 		-import $(call nativepath,$(FLASCC)/usr/lib/builtin.abc) \
 		-import $(call nativepath,$(FLASCC)/usr/lib/playerglobal.abc) \
-		-import $(call nativepath,$(GLS3D)/install/usr/lib/libGL.abc) \
+		-import $(call nativepath,$(FLASCC)/usr/lib/libGL.abc) \
 		-import $(call nativepath,$(FLASCC)/usr/lib/ISpecialFile.abc) \
 		-import $(call nativepath,$(FLASCC)/usr/lib/IBackingStore.abc) \
 		-import $(call nativepath,$(FLASCC)/usr/lib/IVFS.abc) \
@@ -56,7 +56,7 @@ all:
 	$(ASC2) -AS3 -strict -optimize \
 		-import $(call nativepath,$(FLASCC)/usr/lib/builtin.abc) \
 		-import $(call nativepath,$(FLASCC)/usr/lib/playerglobal.abc) \
-		-import $(call nativepath,$(GLS3D)/install/usr/lib/libGL.abc) \
+		-import $(call nativepath,$(FLASCC)/usr/lib/libGL.abc) \
 		-import $(call nativepath,$(FLASCC)/usr/lib/ISpecialFile.abc) \
 		-import $(call nativepath,$(FLASCC)/usr/lib/IBackingStore.abc) \
 		-import $(call nativepath,$(FLASCC)/usr/lib/IVFS.abc) \
@@ -69,10 +69,10 @@ all:
 	
 	cd neverball-1.5.4 && PATH=$(FLASCC)/usr/bin:$(PATH) make \
 		DATADIR=data \
-		LDFLAGS="-L$(FLASCC)/install/usr/lib/ $(GLS3D)/install/usr/lib/libGL.abc -L$(GLS3D)/install/usr/lib/ $(FLASCC)/usr/lib/AlcVFSZip.abc -swf-preloader=$(BUILD)/neverball/VFSPreLoader.swf -swf-version=17 -symbol-abc=$(BUILD)/neverball/Console.abc -jvmopt=-Xmx4G -emit-swf -swf-size=800x600 " \
+		LDFLAGS="-L$(FLASCC)/install/usr/lib/ $(FLASCC)/usr/lib/libGL.abc -L$(FLASCC)/usr/lib/ $(FLASCC)/usr/lib/AlcVFSZip.abc -swf-preloader=$(BUILD)/neverball/VFSPreLoader.swf -swf-version=17 -symbol-abc=$(BUILD)/neverball/Console.abc -jvmopt=-Xmx4G -emit-swf -swf-size=800x600 " \
 		CFLAGS="-O3 " \
 		CC="gcc" \
-		SDL_CPPFLAGS="-I$(FLASCC)/usr/include/ -I$(GLS3D)/install/usr/include/ -I$(FLASCC)/usr/include/SDL/ -I$(FLASCC)/usr/include/libpng15/  " \
+		SDL_CPPFLAGS="-I$(FLASCC)/usr/include/ -I$(FLASCC)/usr/include/ -I$(FLASCC)/usr/include/SDL/ -I$(FLASCC)/usr/include/libpng15/  " \
 		PNG_CPPFLAGS="$(shell $(FLASCC)/usr/bin/libpng-config --cflags)" \
 		SDL_LIBS="$(shell $(FLASCC)/usr/bin/sdl-config --libs) -lvgl" \
 		PNG_LIBS="$(shell $(FLASCC)/usr/bin/libpng-config --libs)" \
